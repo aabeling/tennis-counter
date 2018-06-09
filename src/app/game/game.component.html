@@ -5,8 +5,8 @@
         <td>{{ match.player2 }}</td>
     </tr>
     <tr>
-        <td (click)="incGamePoints(0)">{{ match.gamePoints[0] | gamePoint }}</td>
-        <td (click)="incGamePoints(1)">{{ match.gamePoints[1] | gamePoint }}</td>
+        <td class="gamePoint" (click)="incGamePoints(0)">{{ match.gamePoints[0] | gamePoint }}</td>
+        <td class="gamePoint" (click)="incGamePoints(1)">{{ match.gamePoints[1] | gamePoint }}</td>
     </tr>
 </table>
 <h2>Sets</h2>
