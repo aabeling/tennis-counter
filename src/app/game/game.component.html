@@ -1,3 +1,4 @@
+<h2>Spiel</h2>
 <table>
     <tr>
         <td>{{ match.player1 }}</td>
@@ -6,5 +7,16 @@
     <tr>
         <td (click)="incGamePoints(0)">{{ match.gamePoints[0] | gamePoint }}</td>
         <td (click)="incGamePoints(1)">{{ match.gamePoints[1] | gamePoint }}</td>
+    </tr>
+</table>
+<h2>Sets</h2>
+<table>
+    <tr>
+        <td>{{ match.player1 }}</td>
+        <td *ngFor="let setPoint of match.setPoints[0]">{{ setPoint }}</td>
+    </tr>
+    <tr>
+        <td>{{ match.player2 }}</td>
+        <td *ngFor="let setPoint of match.setPoints[1]">{{ setPoint }}</td>
     </tr>
 </table>

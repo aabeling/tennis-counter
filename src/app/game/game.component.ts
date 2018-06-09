@@ -12,7 +12,9 @@ export class GameComponent implements OnInit {
     id: 1,
     player1: 'Lena',
     player2: 'foobar',
-    gamePoints: [0, 0]
+    gamePoints: [0, 0],
+    setPoints: [[0], [0]],
+    currentSet: 0
   };
 
   constructor() { }
@@ -32,6 +34,7 @@ export class GameComponent implements OnInit {
         /* match won by player */
         this.match.gamePoints[0] = 0;
         this.match.gamePoints[1] = 0;
+        this.incSetPoints(player);
       } else if (this.match.gamePoints[other] === 3) {
         /* advantage player */
         this.match.gamePoints[player] = 4;
@@ -49,6 +52,7 @@ export class GameComponent implements OnInit {
       /* match won by player */
       this.match.gamePoints[0] = 0;
       this.match.gamePoints[1] = 0;
+      this.incSetPoints(player);
     } else {
       /* it is deuce now and player will have advantage */
       this.match.gamePoints[player] = 4;
@@ -56,4 +60,22 @@ export class GameComponent implements OnInit {
     }
   }
 
+  incSetPoints(player): void {
+
+    const other: number = (player + 1) % 2;
+
+    this.match.setPoints[player][this.match.currentSet]++;
+
+    /* check if set is won */
+    /* todo: add tie break handling */
+    if (this.match.setPoints[player][this.match.currentSet] >= 6
+      && this.match.setPoints[player][this.match.currentSet]
+      - this.match.setPoints[other][this.match.currentSet] > 1) {
+
+        /* set is won */
+        this.match.currentSet++;
+        this.match.setPoints[0].push(0);
+        this.match.setPoints[1].push(0);
+      }
+  }
 }
