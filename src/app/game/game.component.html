@@ -1,0 +1,10 @@
+<table>
+    <tr>
+        <td>{{ match.player1 }}</td>
+        <td>{{ match.player2 }}</td>
+    </tr>
+    <tr>
+        <td (click)="incGamePoints(0)">{{ match.gamePoints[0] | gamePoint }}</td>
+        <td (click)="incGamePoints(1)">{{ match.gamePoints[1] | gamePoint }}</td>
+    </tr>
+</table>
