@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Match } from '../match';
+import { StorageService } from '../storage.service';
 
 /**
  * Controller for a game.
@@ -11,18 +12,13 @@ import { Match } from '../match';
 })
 export class GameComponent implements OnInit {
 
-  match: Match = {
-    id: 1,
-    player1: 'Lena',
-    player2: 'foobar',
-    gamePoints: [0, 0],
-    setPoints: [[0], [0]],
-    currentSet: 0
-  };
+  match: Match;
 
-  constructor() { }
+  constructor(private storageService: StorageService) { }
 
   ngOnInit() {
+
+    this.match = this.storageService.loadGame();
   }
 
   incGamePoints(player): void {
@@ -61,6 +57,8 @@ export class GameComponent implements OnInit {
       this.match.gamePoints[player] = 4;
       this.match.gamePoints[other] = 3;
     }
+
+    this.storageService.saveGame(this.match);
   }
 
   incSetPoints(player): void {
