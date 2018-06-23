@@ -1,5 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * Pipe which transforms an internal game point into the
+ * normal tennis representation.
+ */
 @Pipe({name: 'gamePoint'})
 export class GamePointPipe implements PipeTransform {
 

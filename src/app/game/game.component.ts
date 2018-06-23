@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Match } from '../match';
 
+/**
+ * Controller for a game.
+ */
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',

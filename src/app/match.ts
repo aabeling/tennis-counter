@@ -1,3 +1,6 @@
+/**
+ * Holds information about a match.
+ */
 export class Match {
     id: number;
     player1: string;
