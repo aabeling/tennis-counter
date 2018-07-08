@@ -25,3 +25,24 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Achim's notes
+
+### convert angular into cordova app
+
+https://medium.com/@nacojohn/convert-your-angular-project-to-mobile-app-using-cordova-f0384a7711a6
+
+### debugging a running app on android connected via usb
+
+https://geeklearning.io/apache-cordova-and-remote-debugging-on-android/ :
+
+start chrome, enter `chrome://inspect`, choose device
+
+### building
+
+```
+$ ng build
+$ cordova run android
+```
+
+
