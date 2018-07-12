@@ -7,6 +7,7 @@ declare var device;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   title = 'tennis-counter';
 
   ngOnInit() {
